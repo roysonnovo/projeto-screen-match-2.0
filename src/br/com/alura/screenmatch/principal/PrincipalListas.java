@@ -4,7 +4,7 @@ import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 import br.com.alura.screenmatch.modelos.Titulo;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class PrincipalListas {
     static void main() {
@@ -16,7 +16,7 @@ public class PrincipalListas {
         filmeRoyson.avalia(10);
         Serie lost = new Serie("Lost",2000);
 
-        ArrayList<Titulo> lista = new ArrayList<>();
+        List<Titulo> lista = new LinkedList<>();
         lista.add(filmeRoyson);
         lista.add(meuFilme);
         lista.add(outroFilme);
@@ -28,5 +28,20 @@ public class PrincipalListas {
             }
 
         }
+
+        ArrayList<String> buscaPorArtista = new ArrayList<>();
+        buscaPorArtista.add("Jack Black");
+        buscaPorArtista.add("Will Smith");
+        buscaPorArtista.add("Tom Cruise");
+
+        Collections.sort(buscaPorArtista);
+        System.out.println("Depois da ordenação");
+        System.out.println(buscaPorArtista);
+        System.out.println("Lista de titulos ordenados");
+        Collections.sort(lista);
+        System.out.println(lista);
+        lista.sort(Comparator.comparing(Titulo::getAnoDeLancamento));
+        System.out.println("Ordenando pr ano");
+        System.out.println(lista);
     }
 }
